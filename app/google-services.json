@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "482042070215",
+    "project_id": "temprecor-2b474",
+    "storage_bucket": "temprecor-2b474.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482042070215:android:1987b64180e86368126ae2",
+        "android_client_info": {
+          "package_name": "com.psionicgeek.temp_recor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482042070215-35m237lu93745181od5k2gevaeb1acvr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHWhXx8R8338A8BpP4WmZbRWfuf0HxGvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482042070215-35m237lu93745181od5k2gevaeb1acvr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "482042070215-pcegc1hnlbmhhi6bgg0avhud09l4nijm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.psionicgeek.tempRecor"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482042070215:android:87d0d35f8ff0e76d126ae2",
+        "android_client_info": {
+          "package_name": "com.psionicgeek.temprecor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482042070215-35m237lu93745181od5k2gevaeb1acvr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHWhXx8R8338A8BpP4WmZbRWfuf0HxGvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482042070215-35m237lu93745181od5k2gevaeb1acvr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "482042070215-pcegc1hnlbmhhi6bgg0avhud09l4nijm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.psionicgeek.tempRecor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
