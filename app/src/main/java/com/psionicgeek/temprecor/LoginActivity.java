@@ -50,6 +50,8 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     loginButton.startAnimation();
+                    if(!email.getText().toString().isEmpty()){
+                        if (!password.getText().toString().isEmpty()){
                     String enterEmail=email.getText().toString();
                     String enterPass=password.getText().toString();
                     firebaseAuth.signInWithEmailAndPassword(enterEmail,enterPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -75,7 +77,16 @@ public class LoginActivity extends AppCompatActivity {
 
                         }
                         }
-                    });
+                    });}
+                        else {
+                            password.setError("!Enter Password");
+                            loginButton.revertAnimation();
+                        }
+                    }
+                    else{
+                        email.setError("!Enter Email");
+                        loginButton.revertAnimation();
+                    }
                 }
             });
 
