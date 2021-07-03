@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -57,6 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
                         firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
+                                if (task.isSuccessful()){
                                uid[0] = firebaseAuth.getCurrentUser().getUid();
                                 DocumentReference documentReference=firebaseFirestore.collection("UserDetail").document(uid[0]);
                                 Map<String,Object> user= new HashMap<>();
@@ -73,6 +75,11 @@ public class RegisterActivity extends AppCompatActivity {
                                     }
                                 });
                             }
+                            else{
+                                registerButton.revertAnimation();
+                                Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                            }}
+
                         });
 
                     }

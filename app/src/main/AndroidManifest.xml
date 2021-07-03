@@ -16,8 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TempRecor">
-        <activity android:name=".Verify"></activity>
-        <activity android:name=".MainPage"></activity>
+        <activity android:name=".Verify" android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".MainPage" android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
