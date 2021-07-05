@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:paddingTop="16dp"
+    android:paddingStart="16dp"
+    android:paddingBottom="16dp"
+    android:paddingEnd="16dp"
+    android:gravity="bottom"
+    tools:ignore="RtlSymmetry">
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/ic_login_hero"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  "
+        android:scrollbarSize="40sp"
+        android:textColor="@color/white"
+        android:fontFamily="serif-monospace"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/black">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Temp Recor"
+            android:scrollbarSize="40sp"
+            android:textColor="@color/white"
+            android:fontFamily="serif-monospace"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
