@@ -6,21 +6,16 @@
             android:id="@+id/nav_home"
             android:title="Home"
             android:icon="@drawable/home_icon"/>
-        <item
-            android:id="@+id/nav_something"
-            android:title="something"
-            android:icon="@drawable/home_icon"/>
-
-        <item
-        android:id="@+id/nav_something2"
-        android:title="something2"
-        android:icon="@drawable/home_icon"/>
-
-        <item
-            android:id="@+id/nav_something3"
-            android:title="something3"
-            android:icon="@drawable/home_icon"/>
     </group>
+    <item android:title="aur kuch">
+        <menu>
+            <item
+                android:id="@+id/Aur_kuch"
+                android:title="Calender"/>
+        </menu>
+
+
+    </item>
     <group android:checkableBehavior="single">
         <item
             android:title="Proflie">
@@ -42,15 +37,6 @@
 
 
     </group>
-    <item android:title="aur kuch">
-        <menu>
-            <item
-                android:id="@+id/Aur_kuch"
-                android:title="Aur Kuch"
-                android:icon="@drawable/ic_add_img"/>
-        </menu>
 
-
-    </item>
 
 </menu>

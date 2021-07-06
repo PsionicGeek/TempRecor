@@ -27,6 +27,7 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
     NavigationView navigationView;
     Toolbar toolbar;
 
+
     @Override
     public void onBackPressed() {
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
@@ -35,7 +36,6 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
         else{
             super.onBackPressed();
         }
-
     }
 
     @Override
@@ -63,8 +63,6 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
         firebaseAuth= FirebaseAuth.getInstance();
         navigationView.setCheckedItem(R.id.nav_home);
 
-
-
     }
 
     @Override
@@ -74,14 +72,10 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
 
                 break;
-            case R.id.nav_something:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new something2_fragment()).commit();
+            case R.id.Edit_Profile:
+                navigationView.setCheckedItem(R.id.Edit_Profile);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Edit_Profile()).commit();
 
-                break;
-            case R.id.nav_something2:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new something_fregment()).commit();
-                break;
-            case R.id.nav_something3:
                 break;
             case R.id.Logout:
                 firebaseAuth.signOut();
