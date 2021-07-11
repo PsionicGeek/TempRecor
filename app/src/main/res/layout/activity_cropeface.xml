@@ -6,16 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".CropefaceActivity"
     android:background="@color/white">
+
     <ImageView
         android:id="@+id/cropeface"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_width="298dp"
+        android:layout_height="278dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498"
-        android:background="@color/white"/>
+        app:layout_constraintVertical_bias="0.123" />
 
+    <EditText
+        android:id="@+id/Name"
+        android:gravity="center_horizontal"
+        style="@style/modifiedInputName"
+        android:layout_width="294dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="308dp"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <ProgressBar
+        android:id="@+id/pBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="504dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

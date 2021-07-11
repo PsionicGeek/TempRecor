@@ -21,10 +21,7 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
-        <activity android:name=".FaceCheck"
-            android:theme="@style/AppTheme.NoActionBar"    >
 
-        </activity>
         <activity
             android:name=".Verify"
             android:theme="@style/AppTheme.NoActionBar" />
