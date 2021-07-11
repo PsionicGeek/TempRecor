@@ -48,7 +48,7 @@ public class HomeFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dispatchTakePictureIntent();
+                startActivity(new Intent(getActivity(),FaceCheck.class));
             }
         });
 

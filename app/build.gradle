@@ -38,6 +38,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-ml-vision:24.0.1'
     implementation 'org.jetbrains:annotations:15.0'
     implementation 'com.google.firebase:firebase-firestore:23.0.1'
+    implementation 'com.google.mlkit:face-detection:16.1.2'
+    implementation 'com.google.firebase:firebase-firestore:23.0.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
