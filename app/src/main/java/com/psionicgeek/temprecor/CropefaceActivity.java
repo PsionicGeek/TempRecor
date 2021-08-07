@@ -16,8 +16,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -43,7 +45,8 @@ public class CropefaceActivity extends AppCompatActivity {
     Rect rect;
     Uri mImageCaptureUri1;
     ContentValues values;
-
+    Button tempButton;
+TextView tempView;
     ProgressBar pgsBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +54,15 @@ public class CropefaceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cropeface);
         pgsBar = (ProgressBar) findViewById(R.id.pBar);
         pgsBar.setVisibility(View.GONE);
+        tempButton= findViewById(R.id.tempButton);
+        tempView= findViewById(R.id.tempView);
+        tempButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),Text_Reco.class));
 
+            }
+        });
         values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, "New Picture");//for quality
         values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");//for quality
@@ -62,6 +73,17 @@ public class CropefaceActivity extends AppCompatActivity {
         intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageCaptureUri1);//for quality
         startActivityForResult(intent, pic_id);
 
+
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(Constants.temperature!=null){
+            setTemperature();
+        }
     }
 
     @Override
@@ -100,6 +122,10 @@ public class CropefaceActivity extends AppCompatActivity {
 
     }
 
+    public void setTemperature(){
+        tempView.setText(Constants.temperature);
+    }
+
     public void addFace() {
 
         face=findViewById(R.id.cropeface);
@@ -107,11 +133,11 @@ public class CropefaceActivity extends AppCompatActivity {
         pgsBar.setVisibility(View.GONE);
     }
 
-    public void cropFaceButtonPressed() {
-        Intent intent = new Intent(getApplicationContext(), CropefaceActivity.class);
-
-        startActivity(intent);
-    }
+//    public void cropFaceButtonPressed() {
+//        Intent intent = new Intent(getApplicationContext(), CropefaceActivity.class);
+//
+//        startActivity(intent);
+//    }
 
     public void drawFaceContainer() {
         FaceDetectorOptions options = new FaceDetectorOptions.Builder()
