@@ -4,8 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/temperature.xml" value="0.3890625" />
-        <entry key="app/src/main/res/layout/activity_cropeface.xml" value="0.20729166666666668" />
+        <entry key="app/src/main/res/layout/activity_cropeface.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.3729166666666667" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.3729166666666667" />
         <entry key="app/src/main/res/layout/activity_text_reco.xml" value="0.26804123711340205" />
+        <entry key="app/src/main/res/layout/activity_verify.xml" value="0.3729166666666667" />
+        <entry key="app/src/main/res/layout/edit_profile.xml" value="0.3729166666666667" />
+        <entry key="app/src/main/res/layout/header.xml" value="0.3729166666666667" />
+        <entry key="app/src/main/res/layout/home_fragment.xml" value="0.3729166666666667" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.3729166666666667" />
       </map>
     </option>
   </component>
