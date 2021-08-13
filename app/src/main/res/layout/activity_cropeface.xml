@@ -17,21 +17,21 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123" />
+        app:layout_constraintVertical_bias="0.068" />
 
     <EditText
         android:id="@+id/Name"
-        android:gravity="center_horizontal"
         style="@style/modifiedInputName"
         android:layout_width="294dp"
         android:layout_height="53dp"
-        android:layout_marginBottom="308dp"
+        android:layout_marginBottom="336dp"
+        android:gravity="center_horizontal"
         android:hint="Name"
         android:inputType="textPersonName"
         android:maxLines="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
@@ -40,9 +40,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="168dp"
-        android:layout_marginBottom="504dp"
+        android:layout_marginBottom="524dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
     <Button
         android:id="@+id/tempButton"
@@ -53,20 +54,71 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Name"
-        app:layout_constraintVertical_bias="0.169" />
+        app:layout_constraintVertical_bias="0.269" />
 
     <TextView
         android:id="@+id/tempView"
         android:layout_width="122dp"
         android:layout_height="44dp"
         android:layout_marginTop="44dp"
+        android:gravity="center"
         android:text="Temperature"
-       android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tempButton"
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Name"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.141" />
+
+    <EditText
+        android:id="@+id/phonenumber"
+        android:layout_width="294dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Phone NUmber"
+        android:inputType="phone"
+        android:maxLines="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Name"
+        app:layout_constraintVertical_bias="0.031" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="122dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tempView"
+        app:layout_constraintVertical_bias="0.167" />
+
+    <EditText
+        android:id="@+id/editTextTime"
+        android:layout_width="123dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextDate" />
+
+    <Button
+        android:id="@+id/move_to_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit To Firebase"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate"
+        app:layout_constraintVertical_bias="0.38" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

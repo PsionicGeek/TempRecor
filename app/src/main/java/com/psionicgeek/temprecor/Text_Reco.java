@@ -99,8 +99,7 @@ public class Text_Reco extends AppCompatActivity {
                                     new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            // Task failed with an exception
-                                            // ...
+                                            Constants.temperature="try again";
                                         }
                                     });
 
