@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Rect;
@@ -17,9 +18,11 @@ import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -31,6 +34,10 @@ import com.google.mlkit.vision.face.FaceDetectorOptions;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class CropefaceActivity extends AppCompatActivity {
@@ -45,22 +52,56 @@ public class CropefaceActivity extends AppCompatActivity {
     Rect rect;
     Uri mImageCaptureUri1;
     ContentValues values;
-    Button tempButton;
-TextView tempView;
+    Button tempButton , Movetoverfy;
+    EditText Name,Phone, EditDate, Edit_time;
+    TextView tempView;
     ProgressBar pgsBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cropeface);
-        pgsBar = (ProgressBar) findViewById(R.id.pBar);
+        pgsBar =  findViewById(R.id.pBar);
         pgsBar.setVisibility(View.GONE);
         tempButton= findViewById(R.id.tempButton);
         tempView= findViewById(R.id.tempView);
+        Name = findViewById(R.id.Name);
+        Phone = findViewById(R.id.phonenumber);
+        EditDate = findViewById(R.id.editTextDate);
+        Edit_time = findViewById(R.id.editTextTime);
+        Movetoverfy = findViewById(R.id.move_to_review);
+        Movetoverfy.setEnabled(false);
+
+
         tempButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),Text_Reco.class));
+                if(Name.getText().toString().isEmpty() || Phone.getText().toString().isEmpty())
+                {
+                    Toast.makeText(getApplicationContext(),"Please Fill The Name and Phone Number First",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Constants.Name = Name.getText().toString();
+                    Constants.Phone_Number = Phone.getText().toString();
+                    SetingTime();
+                    Movetoverfy.setEnabled(true);
+                    startActivity(new Intent(getApplicationContext(),Text_Reco.class));
 
+                }
+
+            }
+
+
+        });
+        Movetoverfy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Constants.temperature.isEmpty()||Name.getText().toString().isEmpty()||Phone.getText().toString().isEmpty())
+                {
+                    Toast.makeText(getApplicationContext(),"Upload all necessary information",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    startActivity(new Intent(getApplicationContext(),VerifyUserinfoActivity.class));
+                }
             }
         });
         values = new ContentValues();
@@ -77,13 +118,35 @@ TextView tempView;
 
 
     }
+    private void SetingTime() {
+        Calendar calendar = Calendar.getInstance();
+        Date CurrentDate  = calendar.getTime();
+        String FomatedDate = DateFormat.getDateInstance().format(CurrentDate);
+        EditDate.setText(FomatedDate);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss aaa");
+        String CurrentTime = simpleDateFormat.format(calendar.getTime());
+        Constants.DateAndTime = FomatedDate + " "+ CurrentTime ;
+        Edit_time.setText(CurrentTime);
+
+
+    }
 
     @Override
     protected void onResume() {
         super.onResume();
         if(Constants.temperature!=null){
             setTemperature();
+//            if(Constants.temperature.equals("try again") || Constants.temperature.equals("Someting went Wrong"))
+//            {
+//                Movetoverfy.setEnabled(false);
+//            }
         }
+//        else
+//            {
+//                Movetoverfy.setEnabled(false);
+//            }
+
+
     }
 
     @Override
@@ -151,12 +214,24 @@ TextView tempView;
         Facetask.addOnSuccessListener(new OnSuccessListener<List<Face>>() {
             @Override
             public void onSuccess(@NonNull @NotNull List<Face> faces) {
-                Constants.bitmapTransfer = new BitmapTransfer(bitmap);
 
-                Face  singleface = faces.get(0);
-                rect = singleface.getBoundingBox();
+                Constants.bitmapTransfer = new BitmapTransfer(bitmap);
+                if(faces.size()>0){
+                    Face  singleface = faces.get(0);
+                    rect = singleface.getBoundingBox();
 //                    imageView.setImageDrawable(new BitmapDrawable(getResources(), tempBitmap));
-                Constants.bitmapTransfer.setBitmap(cropBitmap(bitmap, rect));
+
+                    Constants.bitmapTransfer.setBitmap(cropBitmap(bitmap, rect));
+                    tempButton.setEnabled(true);
+                }
+                else
+                {
+                    System.out.println("Working Fine");
+                    Bitmap bitmap =  BitmapFactory.decodeResource(getResources(),R.drawable.cropedfaceerror);
+                    Toast.makeText(getApplicationContext(),"Try again , no face was found in the image",Toast.LENGTH_LONG).show();
+                    Constants.bitmapTransfer.setBitmap(bitmap);
+                    tempButton.setEnabled(true);
+                }
 
 
 
