@@ -1,19 +1,12 @@
 package com.psionicgeek.temprecor;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,25 +17,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.ml.vision.FirebaseVision;
-import com.google.firebase.ml.vision.common.FirebaseVisionImage;
-import com.google.firebase.ml.vision.face.FirebaseVisionFace;
-import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetector;
-import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions;
 
 import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
-
-import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
-
-import static androidx.media.MediaBrowserServiceCompat.RESULT_OK;
 
 public class HomeFragment extends Fragment {
     private FirebaseAuth firebaseAuth;
@@ -60,7 +39,7 @@ public class HomeFragment extends Fragment {
                 new FirebaseRecyclerOptions.Builder<ModelClass>()
                         .setQuery(
                                 FirebaseDatabase.getInstance().getReference("Userinformation")
-                                .child(firebaseAuth.getCurrentUser().getUid()).child("+919554567836").child("sjsjxjc"),ModelClass.class)
+                                .child(firebaseAuth.getCurrentUser().getUid()).child("7269047364").child("ravi kumar singh"),ModelClass.class)
                         .build();
         System.out.println("yha3");
         adaptor =new MyAdaptor(options);

@@ -1,6 +1,7 @@
 package com.psionicgeek.temprecor;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -104,6 +105,10 @@ public class VerifyUserinfoActivity extends AppCompatActivity {
                 System.out.println(e.getMessage());
             }
         });
+
+
         System.out.println("Amiya4");
+
+
     }
 }

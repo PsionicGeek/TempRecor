@@ -12,21 +12,29 @@
         android:layout_height="wrap_content"
         android:padding="15dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/img1"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FFFFFF"/>
+
+
+
 
         <TextView
             android:id="@+id/nametext"
-            android:layout_width="match_parent"
+            android:layout_width="243dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
             android:layout_toRightOf="@id/img1"
-            android:text="This is Demo Name"
+            android:text="Name"
             android:textColor="#000"
-            android:textSize="25sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -35,11 +43,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/nametext"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="-1dp"
             android:layout_toRightOf="@id/img1"
-            android:text="This is Course Name"
+            android:text="Phone"
             android:textColor="#000"
-            android:textSize="25sp" />
-
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/emailtext"
@@ -47,10 +55,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/coursetext"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="-1dp"
             android:layout_toRightOf="@id/img1"
-            android:text="This is Email Name"
+            android:text="Temperature"
             android:textColor="#000"
-            android:textSize="25sp" />
+            android:textSize="18sp" />
 
 
     </RelativeLayout>

@@ -3,7 +3,6 @@ package com.psionicgeek.temprecor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MyAdaptor extends FirebaseRecyclerAdapter<ModelClass, MyAdaptor.MyViewHolder> {
 
@@ -44,7 +45,7 @@ public class MyAdaptor extends FirebaseRecyclerAdapter<ModelClass, MyAdaptor.MyV
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        ImageView img1;
+        CircleImageView img1;
         TextView nametext,coursetext,emailtext;
 
         public MyViewHolder(@NonNull View itemView) {
