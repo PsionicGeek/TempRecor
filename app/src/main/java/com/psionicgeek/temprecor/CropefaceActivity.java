@@ -1,9 +1,5 @@
 package com.psionicgeek.temprecor;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -23,6 +19,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -80,7 +80,7 @@ public class CropefaceActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Please Fill The Name and Phone Number First",Toast.LENGTH_LONG).show();
                 }
                 else{
-                    Constants.Name = Name.getText().toString();
+                    Constants.Name = Name.getText().toString().toLowerCase();
                     Constants.UserMobileNumber = Phone.getText().toString();
                     SetingTime();
                     Movetoverfy.setEnabled(true);
@@ -131,6 +131,7 @@ public class CropefaceActivity extends AppCompatActivity {
 
 
     }
+
 
     @Override
     protected void onResume() {

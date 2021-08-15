@@ -3,11 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.22239583333333332" />
         <entry key="..\:/programs/yhanhikrna/TempRecor/app/src/main/res/layout/activity_main_page.xml" value="0.24166666666666667" />
         <entry key="..\:/programs/yhanhikrna/TempRecor/app/src/main/res/layout/home_fragment.xml" value="0.1" />
         <entry key="..\:/programs/yhanhikrna/TempRecor/app/src/main/res/layout/singlerowdesign.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/drawable-v24/button_background_blue.xml" value="0.2234375" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2234375" />
+        <entry key="app/src/main/res/drawable/circle.xml" value="0.2234375" />
+        <entry key="app/src/main/res/drawable/home_icon.xml" value="0.2234375" />
+        <entry key="app/src/main/res/drawable/img.xml" value="0.2234375" />
+        <entry key="app/src/main/res/drawable/menu.xml" value="0.2234375" />
+        <entry key="app/src/main/res/drawable/profile_icon.xml" value="0.2234375" />
         <entry key="app/src/main/res/drawable/temperature.xml" value="0.3890625" />
         <entry key="app/src/main/res/layout/activity_cropeface.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.20729166666666668" />
         <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.3729166666666667" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.3729166666666667" />
         <entry key="app/src/main/res/layout/activity_text_reco.xml" value="0.26804123711340205" />
@@ -16,6 +25,7 @@
         <entry key="app/src/main/res/layout/edit_profile.xml" value="0.3729166666666667" />
         <entry key="app/src/main/res/layout/header.xml" value="0.3729166666666667" />
         <entry key="app/src/main/res/layout/home_fragment.xml" value="0.3729166666666667" />
+        <entry key="app/src/main/res/layout/singlerowdesign.xml" value="0.5" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.3729166666666667" />
       </map>
     </option>
