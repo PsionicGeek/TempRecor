@@ -81,7 +81,7 @@ public class CropefaceActivity extends AppCompatActivity {
                 }
                 else{
                     Constants.Name = Name.getText().toString();
-                    Constants.Phone_Number = Phone.getText().toString();
+                    Constants.UserMobileNumber = Phone.getText().toString();
                     SetingTime();
                     Movetoverfy.setEnabled(true);
                     startActivity(new Intent(getApplicationContext(),Text_Reco.class));

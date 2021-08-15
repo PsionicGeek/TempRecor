@@ -11,7 +11,7 @@ public class Forrealtime {
         FirebaseDatabase dp = FirebaseDatabase.getInstance();
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         String userid = firebaseAuth.getCurrentUser().getUid().toString();
-        databaseReference= dp.getReference("Userinformation").child(userid).child(Constants.Phone_Number).child(Constants.Name).child(Constants.DateAndTime);
+        databaseReference= dp.getReference("Userinformation").child(userid).child(Constants.UserMobileNumber).child(Constants.Name).child(Constants.DateAndTime);
 
     }
 

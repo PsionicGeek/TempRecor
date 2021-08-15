@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,12 +20,16 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.ml.vision.FirebaseVision;
 import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.firebase.ml.vision.face.FirebaseVisionFace;
@@ -41,13 +46,25 @@ import static androidx.media.MediaBrowserServiceCompat.RESULT_OK;
 
 public class HomeFragment extends Fragment {
     private FirebaseAuth firebaseAuth;
-    @Nullable
-    @org.jetbrains.annotations.Nullable
+    RecyclerView recview;
+    MyAdaptor adaptor;
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.home_fragment,container,false);
         firebaseAuth= FirebaseAuth.getInstance();
         FloatingActionButton fab= root.findViewById(R.id.floatingActionButton);
+        recview = root.findViewById(R.id.regview);
+        recview.setLayoutManager(new LinearLayoutManager(getContext()));
+        System.out.println("yha2");
+        FirebaseRecyclerOptions<ModelClass> options =
+                new FirebaseRecyclerOptions.Builder<ModelClass>()
+                        .setQuery(
+                                FirebaseDatabase.getInstance().getReference("Userinformation")
+                                .child(firebaseAuth.getCurrentUser().getUid()).child("+919554567836").child("sjsjxjc"),ModelClass.class)
+                        .build();
+        System.out.println("yha3");
+        adaptor =new MyAdaptor(options);
+        recview.setAdapter(adaptor);
 
         //Checking For the permission for  Camera
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -66,6 +83,19 @@ public class HomeFragment extends Fragment {
         });
 
         return root;
+    }
+    @Override
+    public void onStart() {
+        System.out.println("yha1");
+        super.onStart();
+        adaptor.startListening();
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adaptor.stopListening();
     }
 
 
