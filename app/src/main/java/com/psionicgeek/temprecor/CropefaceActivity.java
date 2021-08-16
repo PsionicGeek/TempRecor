@@ -101,6 +101,7 @@ public class CropefaceActivity extends AppCompatActivity {
                 }
                 else{
                     startActivity(new Intent(getApplicationContext(),VerifyUserinfoActivity.class));
+                    finish();
                 }
             }
         });
@@ -247,5 +248,11 @@ public class CropefaceActivity extends AppCompatActivity {
         canvas.drawBitmap(cbitmap, -rect.left+rect.left/2, (float) (-rect.top + rect.top / 1.9), null);
         return ret;
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(),MainPage.class));
+        super.onBackPressed();
     }
 }

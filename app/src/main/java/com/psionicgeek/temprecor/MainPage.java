@@ -69,7 +69,7 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
     public boolean onNavigationItemSelected( MenuItem item) {
         switch (item.getItemId()){
             case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment(),"FragmentTransaction_1").commit();
 
                 break;
             case R.id.Edit_Profile:

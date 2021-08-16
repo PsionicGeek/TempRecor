@@ -1,6 +1,7 @@
 package com.psionicgeek.temprecor;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -70,6 +71,14 @@ public class VerifyUserinfoActivity extends AppCompatActivity {
                             public void run() {
                                 // Do something after 5s = 5000ms
                                 UploadInfo();
+                                final Handler anotherhanler = new Handler();
+                                anotherhanler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                       // startActivity(new Intent(getApplicationContext(),MainPage.class));
+                                        finish();
+                                    }
+                                },2000);
                             }
                         }, 1000);
 
