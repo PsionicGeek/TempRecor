@@ -1,10 +1,8 @@
 package com.psionicgeek.temprecor;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,53 +11,42 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.firestore.auth.User;
 
-import java.util.ArrayList;
+import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.MyViewHolder> {
-    Context context;
-    ArrayList<ModelClass> list;
+public class MyAdaptor extends FirebaseRecyclerAdapter<ModelClass, MyAdaptor.MyViewHolder> {
 
-    public MyAdaptor(Context context, ArrayList<ModelClass> list) {
-        this.context = context;
-        this.list = list;
+    public MyAdaptor(@NonNull FirebaseRecyclerOptions<ModelClass> options) {
+        super(options);
+    }
+
+    @Override
+    protected void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i, @NonNull  ModelClass constants) {
+        System.out.println("yha12");
+        System.out.println("This is the information");
+        System.out.println(constants.getUserName());
+        System.out.println(constants.getCropedface());
+        System.out.println(constants.getPhone());
+        System.out.println(constants.getTemp());
+
+        myViewHolder.nametext.setText(constants.getUserName());
+        myViewHolder.coursetext.setText(constants.getPhone());
+        myViewHolder.emailtext.setText(constants.getTemp());
+        Glide.with(myViewHolder.img1.getContext()).load(constants.getCropedface()).into(myViewHolder.img1);
+        System.out.println("yha33");
+
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.singlerowdesign,parent,false);
-
-        return new MyViewHolder(view);
+       View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.singlerowdesign,parent,false);
+       return new MyViewHolder(view);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
-        ModelClass modelClass = list.get(position);
-        holder.nametext.setText(modelClass.getUserName());
-        holder.coursetext.setText(modelClass.getTemp());
-        holder.emailtext.setText(modelClass.getDateandtime());
-
-
-    }
-    @Override
-    public int getItemViewType(int position) {
-        return position;
-    }
-
-
-    @Override
-    public int getItemCount() {
-        return list.size();
-    }
-
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
-        ImageView img1;
+    public class MyViewHolder extends RecyclerView.ViewHolder{
+        CircleImageView img1;
         TextView nametext,coursetext,emailtext;
-
-
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,8 +58,5 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.MyViewHolder> {
             System.out.println("yha155");
         }
     }
+
 }
-
-
-
-
