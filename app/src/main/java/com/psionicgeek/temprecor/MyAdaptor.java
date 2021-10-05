@@ -29,10 +29,14 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.MyViewHolder> {
         return new MyViewHolder(view);
     }
 
+
+
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         ModelClass modelClass = list.get(position);
+        System.out.println(modelClass.getCropedface());
+        new ImageLoadTask(modelClass.getCropedface(), holder).execute();
         holder.nametext.setText(modelClass.getUserName());
         holder.coursetext.setText(modelClass.getTemp());
         holder.emailtext.setText(modelClass.getDateandtime());
