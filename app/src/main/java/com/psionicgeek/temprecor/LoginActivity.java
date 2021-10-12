@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
         private EditText email;
         private FirebaseAuth firebaseAuth;
     private EditText password;
+    private TextView forgot_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         CircularProgressButton loginButton= findViewById(R.id.cirLoginButton);
          email= findViewById(R.id.editTextEmail);
+         forgot_password=findViewById(R.id.forgot_pass);
+         forgot_password.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 System.out.println("Forgot Password");
+             }
+         });
         password= findViewById(R.id.editTextPassword);
         firebaseAuth= FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser()!=null){

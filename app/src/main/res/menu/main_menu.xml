@@ -7,15 +7,20 @@
             android:title="Home"
             android:icon="@drawable/home_icon"/>
     </group>
-    <item android:title="aur kuch">
-        <menu>
+    <group android:checkableBehavior="single">
             <item
-                android:id="@+id/Aur_kuch"
-                android:title="Calender"/>
-        </menu>
+                android:id="@+id/Calendar"
+                android:title="Calender"
+                android:icon="@drawable/ic_calendar"/>
+        <item
+            android:id="@+id/Search"
+            android:title="Search"
+            android:icon="@drawable/ic_search"/>
+
+    </group>
 
 
-    </item>
+
     <group android:checkableBehavior="single">
         <item
             android:title="Proflie">

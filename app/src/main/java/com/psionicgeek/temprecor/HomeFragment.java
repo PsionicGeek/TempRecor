@@ -27,7 +27,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.StringTokenizer;
 
 public class HomeFragment extends Fragment {
     private FirebaseAuth firebaseAuth;
@@ -65,16 +69,25 @@ public class HomeFragment extends Fragment {
 //                        System.out.println(another);
                         for (DataSnapshot anotheragain : another.getChildren()){
 //                            System.out.println("this is the data i found4");
-//                            System.out.println(anotheragain);
+                            StringTokenizer stringTokenizer=new StringTokenizer(anotheragain.getKey());
+                            String getDate=stringTokenizer.nextToken();
+                            Date date=new Date();
+                            SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+                            String todayDate=formatter.format(date);
+                            System.out.println(todayDate);
+                            System.out.println(anotheragain.getKey());
                             ModelClass user = anotheragain.getValue(ModelClass.class);
+                            if(todayDate.equals(getDate)){
+
                             list.add(user);
+                            }
                         }
                        // adaptor.notifyDataSetChanged();
                     }
 //                    adaptor.notifyDataSetChanged();
 
                 }
-
+                list.sort(Comparator.comparing(ModelClass::getDateandtime).reversed());
 
             }
 

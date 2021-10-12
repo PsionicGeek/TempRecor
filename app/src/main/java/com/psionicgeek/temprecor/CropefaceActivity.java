@@ -34,7 +34,6 @@ import com.google.mlkit.vision.face.FaceDetectorOptions;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -122,9 +121,11 @@ public class CropefaceActivity extends AppCompatActivity {
     private void SetingTime() {
         Calendar calendar = Calendar.getInstance();
         Date CurrentDate  = calendar.getTime();
-        String FomatedDate = DateFormat.getDateInstance().format(CurrentDate);
+        Date date=new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+        String FomatedDate = formatter.format(date);
         EditDate.setText(FomatedDate);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss aaa");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss aa");
         String CurrentTime = simpleDateFormat.format(calendar.getTime());
         Constants.DateAndTime = FomatedDate + " "+ CurrentTime ;
         Edit_time.setText(CurrentTime);
