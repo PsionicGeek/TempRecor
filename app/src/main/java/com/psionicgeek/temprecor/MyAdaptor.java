@@ -35,11 +35,12 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         ModelClass modelClass = list.get(position);
-        System.out.println(modelClass.getCropedface());
+//        System.out.println(modelClass.getCropedface());
         new ImageLoadTask(modelClass.getCropedface(), holder).execute();
         holder.nametext.setText(modelClass.getUserName());
-        holder.coursetext.setText(modelClass.getTemp());
-        holder.emailtext.setText(modelClass.getDateandtime());
+        holder.phone.setText(modelClass.getPhone());
+        holder.temp.setText(modelClass.getTemp());
+        holder.dateandtime.setText(modelClass.getDateandtime());
 
 
     }
@@ -56,7 +57,7 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         ImageView img1;
-        TextView nametext,coursetext,emailtext;
+        TextView nametext,phone,temp,dateandtime;
 
 
 
@@ -65,8 +66,9 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.MyViewHolder> {
             System.out.println("yha44");
             img1 = itemView.findViewById(R.id.img1);
             nametext = itemView.findViewById(R.id.nametext);
-            coursetext = itemView.findViewById(R.id.coursetext);
-            emailtext = itemView.findViewById(R.id.emailtext);
+            phone = itemView.findViewById(R.id.phone);
+            temp = itemView.findViewById(R.id.temp);
+            dateandtime=itemView.findViewById(R.id.datetime);
             System.out.println("yha155");
         }
     }

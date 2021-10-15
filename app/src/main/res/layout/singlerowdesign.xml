@@ -21,8 +21,6 @@
             app:civ_border_width="2dp" />
 
 
-
-
         <TextView
             android:id="@+id/nametext"
             android:layout_width="243dp"
@@ -37,7 +35,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/coursetext"
+            android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/nametext"
@@ -49,14 +47,25 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/emailtext"
+            android:id="@+id/temp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/coursetext"
+            android:layout_below="@id/phone"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="-1dp"
             android:layout_toRightOf="@id/img1"
             android:text="Temperature"
+            android:textColor="#000"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/datetime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/temp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="Date Time"
             android:textColor="#000"
             android:textSize="18sp" />
 

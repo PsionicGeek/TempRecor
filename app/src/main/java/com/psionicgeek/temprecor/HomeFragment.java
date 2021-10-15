@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,25 +40,29 @@ public class HomeFragment extends Fragment {
     DatabaseReference database;
     MyAdaptor adaptor;
     ArrayList<ModelClass> list;
+    ProgressBar loading;
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.home_fragment,container,false);
         firebaseAuth= FirebaseAuth.getInstance();
         FloatingActionButton fab= root.findViewById(R.id.floatingActionButton);
         recview = root.findViewById(R.id.regview);
+        loading=root.findViewById(R.id.loading);
         recview.setLayoutManager(new LinearLayoutManager(getContext()));
         System.out.println("yha2");
         database = FirebaseDatabase.getInstance().getReference("Userinformation").child(firebaseAuth.getCurrentUser().getUid());
         recview.setHasFixedSize(true);
         list = new ArrayList<>();
-
+        loading.setVisibility(View.VISIBLE);
         System.out.println("yha3");
         adaptor =new MyAdaptor(getContext(),list);
         recview.setAdapter(adaptor);
         database.addValueEventListener(new ValueEventListener() {
+
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                loading.setVisibility(View.VISIBLE);
                 list.clear();
                 System.out.println("this is the data i found");
                 adaptor.notifyDataSetChanged();
@@ -69,13 +74,12 @@ public class HomeFragment extends Fragment {
 //                        System.out.println(another);
                         for (DataSnapshot anotheragain : another.getChildren()){
 //                            System.out.println("this is the data i found4");
+                            System.out.println(anotheragain.getValue());
                             StringTokenizer stringTokenizer=new StringTokenizer(anotheragain.getKey());
                             String getDate=stringTokenizer.nextToken();
                             Date date=new Date();
                             SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
                             String todayDate=formatter.format(date);
-                            System.out.println(todayDate);
-                            System.out.println(anotheragain.getKey());
                             ModelClass user = anotheragain.getValue(ModelClass.class);
                             if(todayDate.equals(getDate)){
 
@@ -88,6 +92,7 @@ public class HomeFragment extends Fragment {
 
                 }
                 list.sort(Comparator.comparing(ModelClass::getDateandtime).reversed());
+                loading.setVisibility(View.GONE);
 
             }
 
@@ -95,6 +100,7 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+
         });
 
         //Checking For the permission for  Camera

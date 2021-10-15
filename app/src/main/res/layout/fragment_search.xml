@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    >
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editSearchPhonebox"
+        style="@style/parent"
+        android:layout_marginTop="@dimen/loginViewsMargin">
+        <EditText
+            android:id="@+id/editSearchPhone"
+            style="@style/modifiedEditText"
+            android:gravity="center"
+            android:hint="+91"
+            android:inputType="phone"
+            android:maxLines="1"
+            android:focusedByDefault="false"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+
+        android:id="@+id/searchPhoneButton"
+        style="@style/loginButton"
+        android:layout_below="@+id/editSearchPhonebox"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="115dp"
+        android:gravity="center"
+        android:text="Search Phone"
+        app:initialCornerAngle="27dp"
+        app:spinning_bar_color="#FFF"
+        app:spinning_bar_padding="6dp"
+        app:spinning_bar_width="4dp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="wrap_content"
+        android:layout_height="622dp"
+        android:layout_below="@+id/searchPhoneButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24" />
+
+    <ProgressBar
+        android:id="@+id/loading2"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="315dp"
+        android:layout_marginEnd="169dp"
+        android:layout_marginBottom="339dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/SaveData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="17dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/stat_sys_download"/>
+
+
+</RelativeLayout>

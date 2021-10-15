@@ -69,6 +69,9 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
             case R.id.Calendar:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Calender()).commit();
                 break;
+            case R.id.Search:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Search_Fragment()).commit();
+                break;
 
             case R.id.Edit_Profile:
                 navigationView.setCheckedItem(R.id.Edit_Profile);

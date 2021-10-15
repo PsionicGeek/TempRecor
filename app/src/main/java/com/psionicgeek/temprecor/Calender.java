@@ -17,6 +17,6 @@ public class Calender extends Fragment {
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-        return (ViewGroup) inflater.inflate(R.layout.edit_profile,container,false);
+        return (ViewGroup) inflater.inflate(R.layout.fragment_calender,container,false);
     }
 }
